@@ -31,5 +31,5 @@ elif [[ $_shell == "bash" || $_shell == "sh" ]]; then
   source ~/.bashrc
 fi
 
-echo "\ntmux and tmuxinator have been installed. Please execute 'mux stackla-web'."
+echo "\ntmux and tmuxinator have been installed. Please execute 'mux sample'."
 
