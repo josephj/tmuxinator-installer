@@ -1,0 +1,11 @@
+project_name: PROJECT
+project_root: ~/Repos/PROJECT
+windows:
+  - editor: vim
+  - shell: git fetch
+  - vagrant: vagrant ssh
+  - content: vagrant ssh -c 'pm2 logs DataServices'
+  - ingest: vagrant ssh -c 'cd /vagrant/PROJECT/app/; NODE_ENV=dev node streaming/gnip-sqs.js'
+  - sqsdb: vagrant ssh -c 'cd /vagrant/PROJECT/app/; NODE_ENV=dev node streaming/sqs-db.js'
+  - doc: vagrant ssh -c 'cd /vagrant/PROJECT; grunt --gruntfile=vendor/npm/gruntfiles/doc.js'
+  - phinx: cd vendor/phinx; vagrant ssh -c 'cd /vagrant/PROJECT/vendor/phinx; vendor/bin/phinx migrate'
